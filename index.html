@@ -343,45 +343,7 @@
       <!-- Top Bar: Music Box Controller -->
       <header
         class="w-full flex justify-between items-center z-40 max-w-5xl px-2"
-      >
-        <div class="flex items-center space-x-3">
-          <!-- Vinyl Disc Music Box -->
-          <div
-            id="musicBox"
-            onclick="toggleMusic()"
-            class="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-black border-2 border-yellow-500/80 shadow-lg flex items-center justify-center cursor-pointer group transition-transform hover:scale-105"
-            title="Bật/Tắt Nhạc"
-          >
-            <div
-              id="vinylDisc"
-              class="w-full h-full rounded-full bg-neutral-900 border-4 border-neutral-800 flex items-center justify-center vinyl-spin paused relative overflow-hidden"
-            >
-              <!-- Grooves -->
-              <div
-                class="absolute inset-1 rounded-full border border-neutral-700/40"
-              ></div>
-              <div
-                class="absolute inset-2 rounded-full border border-neutral-700/30"
-              ></div>
-              <div
-                class="absolute inset-3 rounded-full border border-neutral-700/20"
-              ></div>
-              <!-- Center Label -->
-              <div
-                class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-pink-500 flex items-center justify-center"
-              >
-                <div class="w-1.5 h-1.5 rounded-full bg-black"></div>
-              </div>
-            </div>
-            <!-- Music Icon Floating -->
-            <div
-              class="absolute -top-1 -right-1 bg-pink-600 text-white w-5 h-5 rounded-full flex items-center justify-center text-xs shadow-md"
-            >
-              <i id="musicIcon" class="fa-solid fa-music"></i>
-            </div>
-          </div>
-        </div>
-      </header>
+      ></header>
 
       <!-- Floating Photo Frames Container (Polaroid Collage) -->
       <div
@@ -424,7 +386,121 @@
         </div>
       </main>
     </div>
+    <!-- ================= HỘP QUÀ BẤT NGỜ ================= -->
+    <div id="giftOverlay" class="gift-overlay" aria-hidden="true">
+      <div class="gift-stage">
+        <!-- Hộp quà -->
+        <div class="gift-box-wrap">
+          <button
+            id="giftBox"
+            class="gift-box"
+            type="button"
+            aria-label="Mở hộp quà"
+          >
+            <span class="gift-glow"></span>
+            <span class="gift-ring"></span>
+            <span class="gift-ring" style="animation-delay: 1.6s"></span>
 
+            <svg class="gift-svg" viewBox="0 0 160 160" aria-hidden="true">
+              <ellipse
+                cx="80"
+                cy="150"
+                rx="52"
+                ry="7"
+                fill="rgba(200,111,145,.22)"
+              />
+              <g class="gift-base">
+                <rect
+                  x="26"
+                  y="74"
+                  width="108"
+                  height="72"
+                  rx="9"
+                  fill="#ff7aa2"
+                />
+                <rect x="72" y="74" width="16" height="72" fill="#ffe08a" />
+                <rect
+                  x="26"
+                  y="74"
+                  width="108"
+                  height="10"
+                  fill="rgba(0,0,0,.08)"
+                />
+              </g>
+              <g class="gift-lid">
+                <rect
+                  x="18"
+                  y="50"
+                  width="124"
+                  height="28"
+                  rx="9"
+                  fill="#ff5c8a"
+                />
+                <rect x="72" y="50" width="16" height="28" fill="#ffe08a" />
+                <ellipse
+                  cx="60"
+                  cy="42"
+                  rx="20"
+                  ry="11"
+                  fill="#ffd166"
+                  transform="rotate(-22 60 42)"
+                />
+                <ellipse
+                  cx="100"
+                  cy="42"
+                  rx="20"
+                  ry="11"
+                  fill="#ffd166"
+                  transform="rotate(22 100 42)"
+                />
+                <circle cx="80" cy="48" r="8" fill="#ffc247" />
+              </g>
+            </svg>
+
+            <span class="gift-spark" style="top: 0; left: 4%; --d: 0s">✨</span>
+            <span class="gift-spark" style="top: 10%; right: 0; --d: 0.5s"
+              >✨</span
+            >
+            <span class="gift-spark" style="bottom: 18%; left: -4%; --d: 1s"
+              >✨</span
+            >
+            <span class="gift-spark" style="bottom: 6%; right: 6%; --d: 1.4s"
+              >✨</span
+            >
+          </button>
+          <p class="gift-hint">Chạm vào hộp quà nhé 🎁</p>
+        </div>
+
+        <!-- Nội dung món quà -->
+        <div class="gift-card">
+          <div class="gift-inner">
+            <p class="gift-kicker">Món quà dành cho em 🎁</p>
+            <p class="gift-msg">Ngày mai được đi chơi cùng mình 🎂</p>
+            <p id="giftReply" class="gift-reply" aria-live="polite"></p>
+            <div id="giftActions" class="gift-actions">
+              <button id="giftYes" class="gift-btn gift-yes" type="button">
+                Đồng ý
+              </button>
+              <button id="giftNo" class="gift-btn gift-no" type="button">
+                Không
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Canvas thư tình bay -->
+    <canvas id="loveLetters"></canvas>
+    <!-- ================= NÚT NHẠC ================= -->
+    <button
+      id="musicBtn"
+      class="music-btn"
+      type="button"
+      aria-label="Phát nhạc"
+    >
+      <span>♪</span>
+    </button>
     <script src="./assets/js/main.js"></script>
   </body>
 </html>
